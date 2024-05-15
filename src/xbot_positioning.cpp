@@ -227,7 +227,7 @@ bool setPose(xbot_positioning::SetPoseSrvRequest &req, xbot_positioning::SetPose
 
 void onPose(const xbot_msgs::AbsolutePose::ConstPtr &msg) {
     if (!gps_enabled) {
-        ROS_INFO_STREAM_THROTTLE(gps_message_throttle, "dropping GPS update, since gps_enabled = false.");
+        ROS_DEBUG_STREAM_THROTTLE(1, "Dropping GPS update, since gps_enabled = false.");
         return;
     }
     // TODO fuse with high covariance?
